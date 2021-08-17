@@ -2,11 +2,21 @@
 
 namespace antonyz89\mdb\widgets\form;
 
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use antonyz89\mdb\widgets\Card;
 use yii\base\Widget;
 use yii\db\ActiveRecord;
 
+/**
+ * Class Form
+ * @package antonyz89\mdb\widgets
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
+ */
 class Form extends Widget
 {
     /** @var ActiveRecord */

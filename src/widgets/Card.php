@@ -2,10 +2,20 @@
 
 namespace antonyz89\mdb\widgets;
 
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class Card
+ * @package antonyz89\mdb\widgets
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
+ */
 class Card extends Widget
 {
     /** @var string|null */

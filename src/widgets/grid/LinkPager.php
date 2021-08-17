@@ -3,13 +3,19 @@
 
 namespace antonyz89\mdb\widgets\grid;
 
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\LinkPager as LinkPagerBase;
 
 /**
  * Class LinkPager
- * @package antonyz89\mdb\widgets
+ * @package antonyz89\mdb\widgets\grid
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
  */
 class LinkPager extends LinkPagerBase
 {

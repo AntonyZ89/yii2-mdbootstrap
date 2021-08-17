@@ -8,16 +8,6 @@ use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use antonyz89\mdb\helpers\Html;
 
-/**
- * Class ActiveField
- * @package antonyz89\mdb\widgets
- * 
- * Yii2 MDBootstrap
- * 
- * @author Antony Gabriel <antonyz.dev@gmail.com>
- * 
- * @since 1.0.0
- */
 class ActiveField extends ActiveFieldBase
 {
     /**

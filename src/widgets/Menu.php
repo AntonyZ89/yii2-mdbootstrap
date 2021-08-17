@@ -2,16 +2,25 @@
 
 namespace antonyz89\mdb\widgets;
 
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use Yii;
 use yii\base\Exception;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\widgets\Menu as MenuBase;
 
+/**
+ * Class Menu
+ * @package antonyz89\mdb\widgets
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
+ */
 class Menu extends MenuBase
 {
-
     public $submenuTemplate = '<ul class="collapse list-group list-group-flush shadow border active {class}" id="{id}">{items}</ul>';
 
     /**

@@ -3,11 +3,21 @@
 namespace antonyz89\mdb\widgets\grid;
 
 use antonyz89\pagesize\PageSize;
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use kartik\grid\GridView as GridViewBase;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class GridView
+ * @package antonyz89\mdb\widgets
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
+ */
 class GridView extends GridViewBase
 {
     public $bordered = false;

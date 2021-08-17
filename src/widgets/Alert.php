@@ -2,11 +2,21 @@
 
 namespace antonyz89\mdb\widgets;
 
-use antonyz89\templates\helpers\Html;
+use antonyz89\mdb\helpers\Html;
 use Yii;
 use yii\bootstrap4\Alert as BootstrapAlert;
 use yii\bootstrap4\Widget;
 
+/**
+ * Class Alert
+ * @package antonyz89\mdb\widgets
+ * 
+ * Yii2 MDBootstrap
+ * 
+ * @author Antony Gabriel <antonyz.dev@gmail.com>
+ * 
+ * @since 1.0.0
+ */
 class Alert extends Widget
 {
     public $alertTypes;
