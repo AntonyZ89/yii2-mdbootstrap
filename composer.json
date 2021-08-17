@@ -1,0 +1,44 @@
+{
+  "name": "antonyz89/yii2-mdbootstrap",
+  "description": "Material Design Bootstrap 5 for Yii2",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "extension",
+    "material",
+    "design",
+    "bootstrap",
+    "bootstrap5"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "antonyz89",
+      "email": "antonyz.dev@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "yiisoft/yii2": "^2.0.5",
+    "yiisoft/yii2-bootstrap4": "~2.0",
+    "npm-asset/mdb-ui-kit": "*",
+    "antonyz89/yii2-templates": "*",
+    "kartik-v/yii2-datecontrol": "*",
+    "kartik-v/yii2-widget-activeform": "*",
+    "kartik-v/yii2-widget-select2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "antonyz89\\mdb\\": "src"
+    },
+    "files": [
+      "functions.php"
+    ]
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

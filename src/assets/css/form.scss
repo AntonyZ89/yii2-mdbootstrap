@@ -1,0 +1,9 @@
+.hint-block {
+    position: absolute;
+    margin-top: 0 !important;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid,
+.form-control.is-valid, .was-validated .form-control:valid {
+    margin-bottom: 0 !important;
+}
