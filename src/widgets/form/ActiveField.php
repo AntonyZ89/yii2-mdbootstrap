@@ -104,4 +104,17 @@ class ActiveField extends ActiveFieldBase
         }
         return $out;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function hiddenInput($options = [])
+    {
+        $this->options['class'] = str_replace(['form-outline', 'mb-4'], '', $this->options['class']);
+        $options = array_merge($this->inputOptions, $options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = Html::activeHiddenInput($this->model, $this->attribute, $options);
+
+        return $this;
+    }
 }
