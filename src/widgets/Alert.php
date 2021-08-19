@@ -32,7 +32,7 @@ class Alert extends Widget
 
         $session = Yii::$app->session;
         $flashes = $session->allFlashes;
-        $appendCss = $this->options['class'] ?? null;
+        $appendCss = $this->options['class'] ?? 'show';
 
         foreach ($flashes as $type => $data) {
             if (isset($this->alertTypes[$type])) {
@@ -43,7 +43,7 @@ class Alert extends Widget
                     $this->options['id'] = $this->getId() . '-' . $type;
 
                     echo BootstrapAlert::widget([
-                        'body' => $this->alertTypes[$type]['icon'] . $message,
+                        'body' => $this->alertTypes[$type]['icon'] . ' ' . $message,
                         'closeButton' => $this->closeButton,
                         'options' => $this->options,
                     ]);
