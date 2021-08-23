@@ -6,6 +6,16 @@ body {
   main {
     padding-left: 240px;
   }
+
+  .sidebar:not(.sidebar-right) {
+    display: block !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sidebar:not(.sidebar-right) {
+    width: 100%;
+  }
 }
 
 /* Sidebar */
@@ -25,19 +35,14 @@ body {
     transform: translateX(100%);
     transition: transform 1s;
 
-    &.show, &.collapsing {
+    &.show,
+    &.collapsing {
       transform: translateX(0);
     }
 
     .exit {
       margin: 0.5rem 1rem;
     }
-  }
-}
-
-@media (max-width: 991.98px) {
-  .sidebar:not(.sidebar-right) {
-    width: 100%;
   }
 }
 

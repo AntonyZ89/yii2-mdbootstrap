@@ -16,11 +16,12 @@ $(function () {
         return false;
     };
     $(document).on('click', '.show-modal', function () {
-        var self = $(this),
+        const self = $(this),
             target = $(self.attr('data-target')),
             ajax_url = self.attr('data-url') || self.attr('href'),
             header = self.attr('data-header') || '';
-        var h4 = target.find('.modal-header').find('h4');
+        const h4 = target.find('.modal-header').find('h4');
+
         if (h4.length === 0) {
             $('<h4>' + header + '</h4>').appendTo(target.find('.modal-header'));
         } else {
@@ -39,6 +40,8 @@ $(function () {
                 }
             });
             return false;
+        } else {
+            target.modal('show');
         }
     });
 
