@@ -18,7 +18,6 @@ class MDBootstrapPluginAsset extends AssetBundle
 {
     public $sourcePath = '@npm/mdb-ui-kit';
     public $css = [
-        'https://fonts.googleapis.com/icon?family=Material+Icons',
         'css/mdb.min.css',
     ];
     public $js = [
