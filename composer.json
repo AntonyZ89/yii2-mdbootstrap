@@ -23,9 +23,11 @@
     "yiisoft/yii2-bootstrap4": "~2.0",
     "npm-asset/mdb-ui-kit": "*",
     "antonyz89/yii2-templates": "*",
+    "kartik-v/yii2-grid": "*",
     "kartik-v/yii2-datecontrol": "*",
     "kartik-v/yii2-widget-activeform": "*",
-    "kartik-v/yii2-widget-select2": "*"
+    "kartik-v/yii2-widget-select2": "*",
+    "antonyz89/yii2-pagesize": "*"
   },
   "autoload": {
     "psr-4": {
