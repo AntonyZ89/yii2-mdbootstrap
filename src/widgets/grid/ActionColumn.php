@@ -17,8 +17,8 @@ use kartik\grid\ActionColumn as ActionColumnBase;
  */
 class ActionColumn extends ActionColumnBase
 {
-    public $buttonOptions = ['class' => 'btn btn-floating btn-sm btn-light'];
-    public $viewOptions = ['class' => 'btn btn-floating btn-sm btn-light'];
-    public $updateOptions = ['class' => 'btn btn-floating btn-sm btn-primary'];
-    public $deleteOptions = ['class' => 'btn btn-floating btn-sm btn-danger'];
+    public $buttonOptions = ['class' => 'btn btn-floating btn-sm btn-light', 'data-mdb-toggle' => 'tooltip'];
+    public $viewOptions = ['class' => 'btn btn-floating btn-sm btn-light', 'data-mdb-toggle' => 'tooltip'];
+    public $updateOptions = ['class' => 'btn btn-floating btn-sm btn-primary', 'data-mdb-toggle' => 'tooltip'];
+    public $deleteOptions = ['class' => 'btn btn-floating btn-sm btn-danger', 'data-mdb-toggle' => 'tooltip'];
 }

@@ -58,13 +58,11 @@ class Card extends Widget
         $this->renderHeader();
         echo Html::beginTag('div', 'card-body') . "\n";
         $this->renderTitle();
-        echo Html::beginTag('div', 'card-text') . "\n";
         $this->renderContent();
     }
 
     public function run()
     {
-        echo "\n" . Html::endTag('div');
         echo "\n" . Html::endTag('div');
         $this->renderFooter();
         echo "\n" . Html::endTag('div');

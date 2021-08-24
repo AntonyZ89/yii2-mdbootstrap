@@ -22,6 +22,7 @@ class GridView extends GridViewBase
 {
     public $bordered = false;
     public $striped = false;
+    public $options = ['class' => 'grid-view border'];
 
     /*********************/
 
