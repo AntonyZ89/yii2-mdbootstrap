@@ -7,3 +7,7 @@
 .form-control.is-valid, .was-validated .form-control:valid {
     margin-bottom: 0 !important;
 }
+
+.select2-container {
+    z-index: 1060;
+}
