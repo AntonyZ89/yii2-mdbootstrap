@@ -16,5 +16,5 @@ use antonyz89\templates\helpers\Html as HtmlBase;
  */
 class Html extends HtmlBase
 {
-    public const DEFAULT_ROW = 'row gx-2 align-items-end';
+    public const DEFAULT_ROW = 'gx-2 align-items-end';
 }
