@@ -9,7 +9,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 
-```
+```bash
 php composer.phar require --prefer-dist antonyz89/yii2-mdb "*"
 ```
 
@@ -21,11 +21,15 @@ or add
 
 to the require section of your `composer.json` file.
 
+Install sass to convert scss files, for now this is necessary.
 
-Usage
------
+```bash
+npm install -g sass
+```
 
-1. add `MDBootstrapAsset::class` and `MDBootstrapPluginAsset::class` to your `AppAsset::class`
+# Usage
+
+1. add `MDBootstrapPluginAsset::class` and `MDBootstrapAsset::class` to your `AppAsset::class`
 
 ```php
 use antonyz89\mdb\MDBootstrapAsset;
@@ -40,8 +44,8 @@ class AppAsset extends AssetBundle
     public $js = [];
     public $depends = [
         // ...
-        MDBootstrapAsset::class,
-        MDBootstrapPluginAsset::class
+        MDBootstrapPluginAsset::class, // 1st
+        MDBootstrapAsset::class,       // 2nd
     ];
 }
 ```
