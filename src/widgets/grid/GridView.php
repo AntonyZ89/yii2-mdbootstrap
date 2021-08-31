@@ -48,7 +48,7 @@ class GridView extends GridViewBase
     protected function initPanel()
     {
         $this->panel['heading'] = ArrayHelper::getValue($this->panel, 'heading', false);
-        $this->panel['before'] = ArrayHelper::getValue($this->panel, 'before', false);
+        $this->panel['before'] = ArrayHelper::getValue($this->panel, 'before', null);
         $this->panel['after'] = ArrayHelper::getValue($this->panel, 'after', false);
 
         $pageSize = PageSize::widget([
