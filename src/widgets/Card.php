@@ -40,6 +40,9 @@ class Card extends Widget
     public $footerOptions = ['class' => 'card-footer'];
 
     /** @var array */
+    public $bodyOptions = [];
+
+    /** @var array */
     public $options = [];
 
     public function init()
@@ -47,6 +50,7 @@ class Card extends Widget
         parent::init();
 
         $this->options['class'] = 'card ' . ArrayHelper::getValue($this->options, 'class');
+        $this->bodyOptions['class'] = 'card-body ' . ArrayHelper::getValue($this->bodyOptions, 'class');
 
         $id = ArrayHelper::getValue($this->options, 'id');
 
@@ -54,18 +58,18 @@ class Card extends Widget
             $this->setId($id);
         }
 
-        echo Html::beginTag('div', $this->options) . "\n";
+        echo Html::beginTag('div', $this->options) . PHP_EOL;
         $this->renderHeader();
-        echo Html::beginTag('div', 'card-body') . "\n";
+        echo Html::beginTag('div', $this->bodyOptions) . PHP_EOL;
         $this->renderTitle();
         $this->renderContent();
     }
 
     public function run()
     {
-        echo "\n" . Html::endTag('div');
+        echo PHP_EOL . Html::endTag('div');
         $this->renderFooter();
-        echo "\n" . Html::endTag('div');
+        echo PHP_EOL . Html::endTag('div');
     }
 
     public function renderHeader(): void
@@ -86,14 +90,14 @@ class Card extends Widget
 
             $tag = ArrayHelper::remove($this->titleOptions, 'tag', 'h5');
 
-            echo Html::tag($tag, $this->title, $this->titleOptions) . "\n";
+            echo Html::tag($tag, $this->title, $this->titleOptions) . PHP_EOL;
         }
     }
 
     public function renderContent(): void
     {
         if (is_array($this->content)) {
-            echo implode("\n", $this->content);
+            echo implode(PHP_EOL, $this->content);
         } else {
             echo $this->content;
         }
