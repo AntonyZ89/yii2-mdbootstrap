@@ -52,6 +52,7 @@ class ActiveField extends ActiveFieldBase
     {
         switch ($class) {
             case Select2::class:
+                $this->addErrorClassBS4($this->inputOptions);
             case DateControl::class:
                 $this->template = "{label}\n{input}\n{hint}\n{error}";
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
