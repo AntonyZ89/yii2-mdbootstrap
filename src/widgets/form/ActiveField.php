@@ -11,11 +11,11 @@ use antonyz89\mdb\helpers\Html;
 /**
  * Class ActiveField
  * @package antonyz89\mdb\widgets
- * 
+ *
  * Yii2 MDBootstrap
- * 
+ *
  * @author Antony Gabriel <antonyz.dev@gmail.com>
- * 
+ *
  * @since 1.0.0
  */
 class ActiveField extends ActiveFieldBase
@@ -34,6 +34,54 @@ class ActiveField extends ActiveFieldBase
      * @inheritdoc
      */
     public $template = "{input}\n{label}\n{hint}\n{error}";
+
+    /**
+     * temp override
+     *
+     * @inheritDoc
+     */
+    protected function createLayoutConfig($instanceConfig = [])
+    {
+        $form = $instanceConfig['form'];
+        $layout = $form->type;
+        $bsVer = $form->getBsVer();
+        $config = [
+            'hintOptions' => ['tag' => 'div', 'class' => ['form-text', 'text-muted', 'small']],
+            'errorOptions' => ['tag' => 'div', 'class' => 'invalid-feedback'],
+            'inputOptions' => ['class' => 'form-control'],
+            'labelOptions' => ['class' => 'form-label'],
+            'options' => ['class' => 'form-outline mb-4'],
+        ];
+
+        if ($layout === ActiveForm::TYPE_HORIZONTAL) {
+            $config['template'] = "{label}\n{beginWrapper}\n{input}\n{error}\n{hint}\n{endWrapper}";
+            $config['wrapperOptions'] = $config['labelOptions'] = [];
+            $cssClasses = [
+                'offset' => $bsVer === 3 ? 'col-sm-offset-3' : ['col-sm-10', 'offset-sm-2'],
+                'field' => $bsVer > 3 ? 'row' : 'form-group',
+            ];
+            if (isset($instanceConfig['horizontalCssClasses'])) {
+                $cssClasses = ArrayHelper::merge($cssClasses, $instanceConfig['horizontalCssClasses']);
+            }
+            $config['horizontalCssClasses'] = $cssClasses;
+            foreach (array_keys($cssClasses) as $cfg) {
+                $key = $cfg === 'field' ? 'options' : "{$cfg}Options";
+                if ($cfg !== 'offset' && !empty($cssClasses[$cfg])) {
+                    Html::addCssClass($config[$key], $cssClasses[$cfg]);
+                }
+            }
+        } elseif ($layout === ActiveForm::TYPE_INLINE) {
+            $config['inputOptions']['placeholder'] = true;
+            Html::addCssClass($config['options'], 'col-12');
+            Html::addCssClass($config['labelOptions'], ['screenreader' => $form->getSrOnlyCss()]);
+        } elseif ($bsVer === 5 && $layout === ActiveForm::TYPE_FLOATING) {
+            $config['inputOptions']['placeholder'] = true;
+            $config['template'] = "{input}\n{label}\n{error}\n{hint}";
+            Html::addCssClass($config['options'], ['layout' => 'form-floating mt-3']);
+        }
+
+        return $config;
+    }
 
     public function init()
     {
@@ -87,7 +135,7 @@ class ActiveField extends ActiveFieldBase
     /**
      * @inheritdoc
      */
-    protected function getAddonContent($type, $isBs4)
+    protected function getAddonContent($type, $isBs4 = null)
     {
         $addon = ArrayHelper::getValue($this->addon, $type, '');
         if (!is_array($addon)) {
