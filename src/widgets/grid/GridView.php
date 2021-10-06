@@ -22,12 +22,14 @@ class GridView extends GridViewBase
 {
     public $bordered = false;
     public $striped = false;
-    public $options = ['class' => 'grid-view border'];
+    public $options = ['class' => 'grid-view border rounded'];
+    public $responsive = true;
+    public $hover = true;
 
     /*********************/
 
     public $panelFooterTemplate = '{footer}<div class="clearfix"></div>';
-    public $filterSelector = '#per-page';
+    public $pageSelector = '#per-page';
 
     public $selectable = false; // TODO add checkbox to rows
     public $drawer;
@@ -37,6 +39,8 @@ class GridView extends GridViewBase
     public function init()
     {
         self::$bsCssMap[self::BS_PULL_RIGHT] = ['pull-right', 'float-end'];
+
+        $this->filterSelector .= ',' . $this->pageSelector;
 
         parent::init();
     }
@@ -53,7 +57,7 @@ class GridView extends GridViewBase
 
         $pageSize = PageSize::widget([
             'options' => [
-                'id' => str_replace('#', '', $this->filterSelector)
+                'id' => str_replace('#', '', $this->pageSelector)
             ]
         ]);
 
@@ -105,7 +109,7 @@ class GridView extends GridViewBase
         /* @var $class LinkPager */
         $pager = $this->pager;
 
-        $class = ArrayHelper::remove($pager, 'class', LinkPager::className());
+        $class = ArrayHelper::remove($pager, 'class', LinkPager::class);
         $pager['pagination'] = $pagination;
         $pager['view'] = $this->getView();
 

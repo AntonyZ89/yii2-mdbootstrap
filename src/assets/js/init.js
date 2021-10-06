@@ -14,3 +14,11 @@ const mdb_helper = {
     }
   }
 }
+
+/**
+ * @EVENTS
+ */
+
+$(document).on('pjax:success', '[data-pjax-container]', function () {
+  mdb_helper.input.init();
+});
