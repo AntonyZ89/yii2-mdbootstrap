@@ -98,14 +98,19 @@ class ActiveField extends ActiveFieldBase
 
     public function widget($class, $config = [])
     {
+        $original_template = $this->template;
+
         $this->template = "{label}\n{input}\n{hint}\n{error}";
 
         switch ($class) {
-            case Select2::class:
+            case 'kartik\select2\Select2':
                 $this->addErrorClassBS4($this->inputOptions);
-            case DateControl::class:
+            case 'kartik\datecontrol\DateControl':
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
                 $this->labelOptions = [];
+                break;
+            case 'yii\widgets\MaskedInput':
+                $this->template = $original_template;
                 break;
         }
 
