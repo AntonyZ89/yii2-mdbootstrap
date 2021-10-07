@@ -40,7 +40,11 @@ class GridView extends GridViewBase
     {
         self::$bsCssMap[self::BS_PULL_RIGHT] = ['pull-right', 'float-end'];
 
-        $this->filterSelector .= ',' . $this->pageSelector;
+        if (!empty($this->filterSelector)) {
+            $this->filterSelector .= ',' . $this->pageSelector;
+        } else {
+            $this->filterSelector =  $this->pageSelector;
+        }
 
         parent::init();
     }

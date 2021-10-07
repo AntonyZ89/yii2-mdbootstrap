@@ -21,7 +21,7 @@ use yii\widgets\Menu as MenuBase;
  */
 class Menu extends MenuBase
 {
-    public $submenuTemplate = '<ul class="collapse list-group list-group-flush shadow border active {class}" id="{id}">{items}</ul>';
+    public $submenuTemplate = '<ul class="collapse list-group list-group-flush shadow-2-soft bg-white border active {class}" id="{id}">{items}</ul>';
 
     /**
      * Renders the menu.
@@ -39,13 +39,19 @@ class Menu extends MenuBase
             $options = $this->options;
             $tag = ArrayHelper::remove($options, 'tag', 'nav');
 
-            echo Html::tag($tag,
-                Html::tag('div',
-                    Html::tag('div',
-                        $this->renderItems($items)
-                        , 'list-group list-group-flush mx-3 mt-4')
-                    , 'position-sticky')
-                , $options);
+            echo Html::tag(
+                $tag,
+                Html::tag(
+                    'div',
+                    Html::tag(
+                        'div',
+                        $this->renderItems($items),
+                        'list-group list-group-flush mx-3 mt-4'
+                    ),
+                    'position-sticky'
+                ),
+                $options
+            );
         }
     }
 
@@ -64,13 +70,19 @@ class Menu extends MenuBase
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'nav');
 
-        return Html::tag($tag,
-            Html::tag('div',
-                Html::tag('div',
-                    $this->renderItems($items)
-                    , 'list-group list-group-flush mx-3 mt-4')
-                , 'position-sticky')
-            , $options);
+        return Html::tag(
+            $tag,
+            Html::tag(
+                'div',
+                Html::tag(
+                    'div',
+                    $this->renderItems($items),
+                    'list-group list-group-flush mx-3 mt-4'
+                ),
+                'position-sticky'
+            ),
+            $options
+        );
     }
 
     /**
@@ -160,5 +172,4 @@ class Menu extends MenuBase
 
         return strtr($template, $replacements);
     }
-
 }
