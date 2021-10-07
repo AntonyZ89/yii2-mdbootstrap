@@ -98,11 +98,12 @@ class ActiveField extends ActiveFieldBase
 
     public function widget($class, $config = [])
     {
+        $this->template = "{label}\n{input}\n{hint}\n{error}";
+
         switch ($class) {
             case Select2::class:
                 $this->addErrorClassBS4($this->inputOptions);
             case DateControl::class:
-                $this->template = "{label}\n{input}\n{hint}\n{error}";
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
                 $this->labelOptions = [];
                 break;
