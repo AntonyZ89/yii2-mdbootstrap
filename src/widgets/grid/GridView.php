@@ -5,6 +5,7 @@ namespace antonyz89\mdb\widgets\grid;
 use antonyz89\pagesize\PageSize;
 use antonyz89\mdb\helpers\Html;
 use kartik\grid\GridView as GridViewBase;
+use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
@@ -68,7 +69,7 @@ class GridView extends GridViewBase
         $defaultFooter = "
 <div class='row justify-content-end'>
     <div class='col-auto'>
-        Resultados por página <!-- TODO use i18n -->
+        " . Yii::t('app', 'Rows per page') . "
     </div>
     <div style='width: 150px'>$pageSize</div>
     <div class='col-auto'>{pager}</div>
