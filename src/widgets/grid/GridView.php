@@ -69,7 +69,7 @@ class GridView extends GridViewBase
         $defaultFooter = "
 <div class='row justify-content-end'>
     <div class='col-auto'>
-        " . Yii::t('app', 'Rows per page') . "
+        " . Yii::t('mdb', 'Rows per page') . "
     </div>
     <div style='width: 150px'>$pageSize</div>
     <div class='col-auto'>{pager}</div>
