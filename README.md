@@ -50,6 +50,28 @@ class AppAsset extends AssetBundle
 }
 ```
 
+i18n
+--
+
+add in `common\config\main.php`
+
+```php
+return [
+    ...
+    'components' => [
+       ...
+       'i18n' => [
+            'translations' => [
+                'mdb' => [
+                    'class' => PhpMessageSource::class,
+                    'basePath' => '@antonyz89/mdb/messages',
+                ],
+            ],
+        ], 
+    ]
+];
+```
+
 # CREDITS
 
 * UI components built with [Material Design Bootstrap 5](https://mdbootstrap.com).
