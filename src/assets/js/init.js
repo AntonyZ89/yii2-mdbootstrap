@@ -22,3 +22,7 @@ const mdb_helper = {
 $(document).on('pjax:success', '[data-pjax-container]', function () {
   mdb_helper.input.init();
 });
+
+$('[data-dynamicform]').on('afterInsert', function (e, item) {
+  mdb_helper.input.init();
+});
