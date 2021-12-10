@@ -9,3 +9,11 @@
 .kv-checkbox-list label {
   width: auto;
 }
+
+.modal {
+  z-index: 1045;
+}
+
+.modal-backdrop {
+  z-index: 1040;
+}
