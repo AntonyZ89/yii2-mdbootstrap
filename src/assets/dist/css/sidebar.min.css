@@ -1,0 +1,68 @@
+body {
+    background-color: #fbfbfb
+}
+
+@media(min-width:991.98px) {
+    main {
+        padding-left: 300px
+    }
+
+    .sidebar:not(.sidebar-right) {
+        display: block !important
+    }
+}
+
+@media(max-width:991.98px) {
+    .sidebar:not(.sidebar-right) {
+        width: 100%
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+    width: 300px;
+    z-index: 600
+}
+
+.sidebar.sidebar-right {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 1s
+}
+
+.sidebar.sidebar-right.show,
+.sidebar.sidebar-right.collapsing {
+    transform: translateX(0)
+}
+
+.sidebar.sidebar-right .exit {
+    margin: .5rem 1rem
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+}
+
+.sidebar-sticky {
+    top: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.sidebar-sticky .list-group-item>i:nth-child(2) {
+    font-size: .7rem;
+    margin-top: .5rem;
+    float: right
+}
+
+.list-group>.list-group {
+    margin-left: 1rem
+}

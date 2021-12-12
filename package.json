@@ -1,0 +1,27 @@
+{
+  "name": "yii2-mdbootstrap",
+  "version": "1.0.0",
+  "description": "Yii2 - Material Design Bootstrap 5",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonyz89/yii2-mdbootstrap.git"
+  },
+  "author": "AntonyZ89",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonyz89/yii2-mdbootstrap/issues"
+  },
+  "homepage": "https://github.com/antonyz89/yii2-mdbootstrap#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglifycss": "^1.1.0",
+    "sass": "^1.45.0"
+  }
+}

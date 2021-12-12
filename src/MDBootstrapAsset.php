@@ -16,16 +16,16 @@ use yii\web\AssetBundle;
  */
 class MDBootstrapAsset extends AssetBundle
 {
-    public $sourcePath = '@antonyz89/mdb/assets';
+    public $sourcePath = '@antonyz89/mdb/assets/dist';
     public $css = [
-        'css/main.scss',
-        'css/sidebar.scss',
-        'css/form.scss',
+        'css/main.min.css',
+        'css/sidebar.min.css',
+        'css/form.min.css',
     ];
     public $js = [
-        'js/modal.js',
-        'js/init.js',
-        'js/sidebar.js',
+        'js/modal.min.js',
+        'js/init.min.js',
+        'js/sidebar.min.js',
     ];
     public $depends = [];
 }
