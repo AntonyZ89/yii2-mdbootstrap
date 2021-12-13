@@ -19,10 +19,21 @@ const mdb_helper = {
  * @EVENTS
  */
 
+// Initialize inputs after update
 $(document).on('pjax:success', '[data-pjax-container]', function () {
   mdb_helper.input.init();
 });
 
+// Initialize inputs after insert
 $('[data-dynamicform]').on('afterInsert', function (e, item) {
   mdb_helper.input.init();
 });
+
+// force label move up
+$('[data-plugin-inputmask]').blur(function () {
+  const self = $(this);
+
+  if (self.val()) {
+    self.addClass('active')
+  }
+})
