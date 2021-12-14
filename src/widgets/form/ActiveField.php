@@ -107,6 +107,7 @@ class ActiveField extends ActiveFieldBase
             case 'kartik\widgets\Select2':
                 $this->addErrorClassBS4($this->inputOptions);
             case 'kartik\datecontrol\DateControl':
+            case 'kartik\widgets\TimePicker':
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
                 $this->labelOptions = [];
                 break;
