@@ -112,6 +112,7 @@ class ActiveField extends ActiveFieldBase
                 $this->labelOptions = [];
                 break;
             case 'yii\widgets\MaskedInput':
+            case 'common\widgets\CEP':
             case 'kartik\number\NumberControl':
                 $this->template = $original_template;
                 break;
