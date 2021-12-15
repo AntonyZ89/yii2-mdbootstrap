@@ -7,11 +7,13 @@ use kartik\form\ActiveForm as ActiveFormBase;
 /**
  * Class ActiveForm
  * @package antonyz89\mdb\widgets
- * 
+ *
  * Yii2 MDBootstrap
- * 
+ *
+ * @method ActiveField field(Model $model, string $attribute, array $options = [])
+ *
  * @author Antony Gabriel <antonyz.dev@gmail.com>
- * 
+ *
  * @since 1.0.0
  */
 class ActiveForm extends ActiveFormBase

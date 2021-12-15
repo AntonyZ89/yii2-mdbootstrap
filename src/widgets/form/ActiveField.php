@@ -96,6 +96,15 @@ class ActiveField extends ActiveFieldBase
         parent::init();
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function checkboxList($items, $options = [])
+    {
+        $this->template = "{label}\n{input}\n{hint}";
+        return parent::checkboxList($items, $options);
+    }
+
     public function widget($class, $config = [])
     {
         $original_template = $this->template;
