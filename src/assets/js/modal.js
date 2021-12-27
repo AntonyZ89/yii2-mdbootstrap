@@ -33,10 +33,13 @@ $(function () {
                 url: ajax_url,
                 success: function (response) {
                     body.html(response);
-                    mdb_helper.input.init();
                 },
                 error: function (jqXHR) {
                     body.html('<div class="error-summary">' + jqXHR.responseText + '</div>');
+                },
+                complete: function () {
+                    target.trigger('loaded.bs.modal');
+                    mdb_helper.input.init();
                 }
             });
             return false;
