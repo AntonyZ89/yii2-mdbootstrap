@@ -21,12 +21,6 @@ or add
 
 to the require section of your `composer.json` file.
 
-Install sass to convert scss files, for now this is necessary.
-
-```bash
-npm install -g sass
-```
-
 # Usage
 
 1. add `MDBootstrapPluginAsset::class` and `MDBootstrapAsset::class` to your `AppAsset::class`
