@@ -7,6 +7,7 @@ use kartik\form\ActiveField as ActiveFieldBase;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use antonyz89\mdb\helpers\Html;
+use kartik\file\FileInput;
 
 /**
  * Class ActiveField
@@ -112,22 +113,26 @@ class ActiveField extends ActiveFieldBase
         $this->template = "{label}\n{input}\n{hint}\n{error}";
 
         switch ($class) {
-            case 'kartik\select2\Select2':
-            case 'kartik\widgets\Select2':
+            case $this->compare($class, 'kartik\select2\Select2'):
                 $this->addErrorClassBS4($this->inputOptions);
-            case 'kartik\datecontrol\DateControl':
-            case 'kartik\widgets\TimePicker':
+            case $this->compare($class, 'kartik\datecontrol\DateControl'):
+            case $this->compare($class, 'kartik\time\TimePicker'):
+            case $this->compare($class, 'kartik\file\FileInput'):
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
                 $this->labelOptions = [];
                 break;
-            case 'yii\widgets\MaskedInput':
-            case 'common\widgets\CEP':
-            case 'kartik\number\NumberControl':
+            case $this->compare($class, 'yii\widgets\MaskedInput'):
+            case $this->compare($class, 'kartik\number\NumberControl'):
+            case $this->compare($class, 'yii\widgets\InputWidget'):
                 $this->template = $original_template;
                 break;
         }
 
         return parent::widget($class, $config);
+    }
+
+    protected function compare($class, string $targetClass) {
+        return $class === $targetClass || is_subclass_of($class, $targetClass);
     }
 
     /**
