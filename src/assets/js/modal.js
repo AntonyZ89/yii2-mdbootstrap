@@ -18,9 +18,16 @@ $(function () {
     $(document).on('click', '.show-modal', function () {
         const self = $(this),
             target = $(self.attr('data-target')),
-            ajax_url = self.attr('data-url') || self.attr('href'),
+            ajax_url = (self.attr('data-url') || self.attr('href'))?.replace(/&?modal=1&?/g, ''),
             header = self.attr('data-header') || '';
         const h4 = target.find('.modal-header').find('h4');
+
+        //callback
+        const callback = self.attr('data-callback');
+
+        if (callback) {
+            target.attr('data-callback', callback);
+        }
 
         if (h4.length === 0) {
             $('<h4>' + header + '</h4>').appendTo(target.find('.modal-header'));
@@ -33,6 +40,10 @@ $(function () {
                 url: ajax_url,
                 success: function (response) {
                     body.html(response);
+
+                    if (callback) {
+                        body.find('form').attr('data-ajax', 1);
+                    }
                 },
                 error: function (jqXHR) {
                     body.html('<div class="error-summary">' + jqXHR.responseText + '</div>');
@@ -50,15 +61,24 @@ $(function () {
 
     $(document).on('submit', 'form[data-ajax]', function (event) {
         event.preventDefault();
-        var formData = new FormData(this);
-        var form = $(this);
-        var body = form.closest('.modal-body');
+        const formData = new FormData(this);
+        const form = $(this);
+        const body = form.closest('.modal-body');
+        const modal = form.closest('.modal')
+        let action = form.attr('action')
         body.empty();
-        var modal = $('.modal');
+
+        if (action.includes('?')) {
+            action += '&modal=1';
+        } else {
+            action += '?modal=1';
+        }
+
+        console.log({ action })
 
         // submit form
         $.ajax({
-            url: form.attr('action'),
+            url: action,
             type: 'post',
             enctype: 'multipart/form-data',
             processData: false,  // tell jQuery not to process the data
@@ -70,9 +90,16 @@ $(function () {
                 } else {
                     body.html(response);
                 }
+
+                const callback = modal.attr('data-callback');
+
+                callback && eval(`typeof ${callback} === 'function'`) && eval(callback)(response);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 body.html('<div class="error-summary">' + jqXHR.responseText + '</div>');
+            },
+            complete: function () {
+                modal.removeAttr('data-callback');
             }
         });
         return false;
