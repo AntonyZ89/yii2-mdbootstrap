@@ -117,6 +117,7 @@ class ActiveField extends ActiveFieldBase
                 $this->addErrorClassBS4($this->inputOptions);
             case $this->compare($class, 'kartik\datecontrol\DateControl'):
             case $this->compare($class, 'kartik\time\TimePicker'):
+            case $this->compare($class, 'kartik\daterange\DateRangePicker'):
             case $this->compare($class, 'kartik\file\FileInput'):
             case $this->compare($class, 'kartik\switchinput\SwitchInput'):
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
