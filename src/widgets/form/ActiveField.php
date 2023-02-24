@@ -124,6 +124,7 @@ class ActiveField extends ActiveFieldBase
             case $this->compare($class, 'kartik\switchinput\SwitchInput'):
             case $this->compare($class, 'kartik\color\ColorInput'):
             case $this->compare($class, 'kartik\touchspin\TouchSpin'):
+            case $this->compare($class, 'kartik\typeahead\Typeahead'):
                 $this->options['class'] = str_replace('form-outline', 'form-group', $this->options['class']);
                 $this->labelOptions = [];
                 break;
