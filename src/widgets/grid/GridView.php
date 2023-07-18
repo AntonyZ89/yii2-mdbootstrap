@@ -12,12 +12,14 @@ use yii\helpers\ArrayHelper;
 /**
  * Class GridView
  * @package antonyz89\mdb\widgets
- * 
+ *
  * Yii2 MDBootstrap
- * 
+ *
  * @author Antony Gabriel <antonyz.dev@gmail.com>
- * 
+ *
  * @since 1.0.0
+ *
+ * @property-read bool $canShowPagination
  */
 class GridView extends GridViewBase
 {
@@ -76,7 +78,15 @@ class GridView extends GridViewBase
     <span class='col-12'>{summary}</span>
 </div>";
 
-        $this->panel['footer'] = ArrayHelper::getValue($this->panel, 'footer') ?? $defaultFooter;
+        $footer = ArrayHelper::getValue($this->panel, 'footer');
+
+        if ($footer) {
+            $this->panel['footer'] = $footer;
+        } else if ($this->canShowPagination) {
+            $this->panel['footer'] = $defaultFooter;
+        } else {
+            $this->panel['footer'] = false;
+        }
 
         parent::initPanel();
     }
@@ -108,10 +118,10 @@ class GridView extends GridViewBase
     public function renderPager()
     {
         $pagination = $this->dataProvider->getPagination();
-        if ($pagination === false || $this->dataProvider->getCount() <= 0) {
-            return '';
-        }
-        /* @var $class LinkPager */
+
+        if (!$this->canShowPagination) return '';
+
+        /** @var $class LinkPager */
         $pager = $this->pager;
 
         $class = ArrayHelper::remove($pager, 'class', LinkPager::class);
@@ -119,5 +129,11 @@ class GridView extends GridViewBase
         $pager['view'] = $this->getView();
 
         return $class::widget($pager);
+    }
+
+    protected function getCanShowPagination()
+    {
+        $dataProvider = $this->dataProvider;
+        return $dataProvider->pagination !== false && $dataProvider->getCount() > 0;
     }
 }
